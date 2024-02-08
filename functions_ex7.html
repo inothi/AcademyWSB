@@ -1,0 +1,102 @@
+<header>
+    <script src="./logo.js" defer></script>
+    <script src="functions_ex7.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</header>
+
+<body class="bg-light font-size">
+    <div class="container-fluid">
+
+        <!-- Nagłówek -->
+        <div class="row mt-1">
+            <div class="col-12 col-sm-4">
+                <img id="logo" class="d-inline-block align-top"
+                alt="logo">
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <h2>JavaScript - funkcje</h2>
+            </div>
+            <div class="col-12 col-sm-4 text-right">
+                <a>Prowadzący:</a>
+            </br>
+            <a>Marcin Bojarowski</a>
+            </br>
+            <a id="mail"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Treść zadania -->
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Zadanie 7 - Operacje na datach</h5>
+            </div>
+            <div class="card-body">
+                <ol class="mt-1">
+                    <li class="text-justify">
+                        <a>Napisz funkcję która wstawi w pole o id="aktualnaData" dzisiejszą datę.</a>
+                    </li>
+                    </br>
+                    <li class="text-justify">
+                        <a>Napisz funkcję <strong>roznicaDat()</strong> która pobierze datę z pola o id="wybranaData" i obliczy różnicę w porównaniu do wybranej daty. Wynik wstaw w pole o id="roznicaDat". Funkcję zapisz w postaci strzałkowej.</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Rozwiązanie:</h5>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="form-group col-12 col-md-4 col-lg-3">
+                        <label for="aktualnaData">Aktualna data:</label>
+                        <input type="date" class="form-control" readonly id="aktualnaData" placeholder="Aktualna data">
+                    </div>
+                    <div class="form-group col-12 col-md-4 col-lg-3">
+                        <label for="wybranaData">Wybrana data:</label>
+                        <input type="date" class="form-control" id="wybranaData" placeholder="Wybrana data" onchange="roznicaDat()">
+                    </div>
+                    <div class="form-group col-12 col-md-4 col-lg-3">
+                        <label for="roznicaDat">Różnica:</label>
+                        <input type="number" class="form-control" readonly id="roznicaDat" placeholder="Różnica dat" ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<style>
+    .font-size {
+        font-size: 0.9rem;
+    }
+</style>
+
+<script>
+
+    function losujWyborKomutera() {
+        var tablicaMozliwychWyborow = ["Papier", "Kamień", "Nożyce"];
+
+        var wybranyWariantKomputera = tablicaMozliwychWyborow[randomNumber(0, 2)]
+
+        return wybranyWariantKomputera;
+    }
+    function randomNumber(minimum, maximum) {
+        return Math.round(Math.random() * (maximum - minimum) + minimum);
+    }    
+</script>
