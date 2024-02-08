@@ -32,3 +32,16 @@ function sumLetter() {
 console.log(sumLetter());
 
 // ex.5
+function filterA(shoppingList) {
+    return /a/i.test(shoppingList);
+};
+console.log(shoppingList.filter(filterA));
+
+// ex.6
+function bigLetters() {
+    for (let i = 0; i < shoppingList.length; i++) {
+        shoppingList[i] = shoppingList[i].toUpperCase();
+    };
+    console.log(shoppingList);
+};
+bigLetters(shoppingList);
