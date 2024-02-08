@@ -17,5 +17,18 @@ shoppingList.forEach(separateLine);
 
 // ex.4
 function sumLetter() {
-
+    let sum = 0;
+    for (let i = 0; i < shoppingList.length; i++) {
+        if (shoppingList[i].includes(" ")) {
+            let spaces = shoppingList[i].split(" ").length - 1;
+            sum += shoppingList[i].length - spaces;
+        }
+        else {
+            sum += shoppingList[i].length;
+        };
+    };
+    return sum;
 };
+console.log(sumLetter());
+
+// ex.5
