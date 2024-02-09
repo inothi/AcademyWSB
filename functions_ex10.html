@@ -1,0 +1,151 @@
+<header>
+    <script src="./logo.js" defer></script>
+    <script src="functions_ex10.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</header>
+
+<body class="bg-light font-size">
+    <div class="container-fluid">
+
+        <!-- Nagłówek -->
+        <div class="row mt-1">
+            <div class="col-12 col-sm-4">
+                <img id="logo" class="d-inline-block align-top"
+                alt="logo">
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <h2>JavaScript - funkcje</h2>
+            </div>
+            <div class="col-12 col-sm-4 text-right">
+                <a>Prowadzący:</a>
+            </br>
+            <a>Marcin Bojarowski</a>
+            </br>
+            <a id="mail"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Treść zadania -->
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Zadanie 10 - Budżet domowy</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-justify font-size">
+                    Poniższa strona służy do kontrolowania budżetu domowego. W tabeli znajdują się wydatki poniesione
+                    przez domowników wraz z datą oraz wydaną kwotą.
+                <ol>
+                    <li>
+                        Napisz funkcję <strong>dodajNowyWpis()</strong> która umożliwi dodawanie wpisów do poniższej
+                        tabeli.
+                        <ul>
+                            <li>Kolumnę LP uzupełnij automatycznie wg autonumerowania</li>
+                            <li>Kolumnę Data utworzenia uzupełnij automatycznie zgodnie z datą dodania wpisu</li>
+                            <li>Wartości w kolumnie Wpis oraz Kwota pobierz od użytkownika.</li>
+                        </ul>
+                    </li>
+                    <li class="mt-2">
+                        Napisz funkcję sumującą wszystkie wydatki z tabeli i wstawiającą ją w pole
+                        <strong>id="sumaWydatkow"</strong>,
+                        a także funkcję sumującą wydatki tylko z bieżącego miesiąca i wstawiającą ją w pole
+                        <strong>id="wydatkiBiezacegoMiesiaca"</strong>.
+                        Dane powinny się aktualizować po załadowaniu strony, a także każdorazowo po dodaniu nowego
+                        wpisu.
+                    </li>
+                    <li class="mt-2">
+                        Napisz funkcję walidujące poprawność wpisanych przez użytkownika danyc tj.:
+                        <ul>
+                            <li>Funkcja sprawdzająca czy użytkownik nie wpisał pustego tekstu lub kliknął anuluj</li>
+                            <li>Funkcja sprawdzająca czy wpisana kwota jest liczbą</li>
+                        </ul>
+                    </li>
+                </ol>
+                </p>
+                <a>Nie modyfikuj pliku HTML</a>
+            </div>
+        </div>
+    </div>
+    <!-- Rozwiązanie -->
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Rozwiązanie</h5>
+            </div>
+            <div class="card-body">
+                <h5 class="text-center">Budżet domowy</h5>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label for="sumaWydatkow">Łączna suma wydatków</label>
+                        <div class="input-group mb-3">
+                            <input readonly type="number" class="form-control" id="sumaWydatkow">
+                            <div class="input-group-append">
+                                <span class="input-group-text">PLN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label for="wydatkiBiezacegoMiesiaca">Wydatki w bieżącym miesiącu</label>
+                        <div class="input-group mb-3">
+                            <input readonly type="number" class="form-control" id="wydatkiBiezacegoMiesiaca">
+                            <div class="input-group-append">
+                                <span class="input-group-text">PLN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 offset-2">
+                    <button type="button" class="btn btn-outline-dark mb-1" onclick="dodajNowyWpis()">Nowy wpis</button>
+                    <table id="tabelaKursow" class="table-responsive-md text-center table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Lp.</th>
+                                <th scope="col">Data utworzenia</th>
+                                <th scope="col">Wpis</th>
+                                <th scope="col">Kwota</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wierszetabeli">
+                            <tr>
+                                <td scope="col">1</td>
+                                <td scope="col">2020-10-10</td>
+                                <td scope="col">Zakupy w biedronce</td>
+                                <td scope="col">100.20</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">2</td>
+                                <td scope="col">2020-10-13</td>
+                                <td scope="col">Obiad w restauracji</td>
+                                <td scope="col">140.20</td>
+                            </tr>
+                            <tr>
+                                <td scope="col">3</td>
+                                <td scope="col">2020-10-13</td>
+                                <td scope="col">Bilety na koncert</td>
+                                <td scope="col">800.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<style>
+    .font-size {
+        font-size: 0.9rem;
+    }
+</style>
