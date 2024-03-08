@@ -46,6 +46,11 @@ class Pracownik {
         if (pensja == undefined) alert("Nie podano wysokości wynagrodzenia");
         return this.pensja = pensja;
     }
+    // Utworzenie dodatkowej metody na potrzeby pkt. 5.
+    DajPodwyzke(kwota) {
+        if (kwota == undefined) alert("Nie przyznano podwyżki");
+        return this.pensja += kwota;
+    }
     Zwolnij(zwolnionoDnia) {
         return this.dataZwolnienia = zwolnionoDnia || new Date().toISOString().slice(0, 10);
     }
@@ -97,3 +102,12 @@ console.log(`Łączna pensja wszystkich pracowników wynosi ${pokazZarobki()} z�
 
 
 // 5. Przedłuż umowę Panu Wincentemu do końca 2022 roku
+wincentyPazdan.PrzedluzUmoweDo("2022-12-31");
+
+
+// 6. Daj 2000 zł podwyżki Pani Annie
+annaLewandowska.DajPodwyzke(2000);
+
+
+// 7. Zwolnij Pana Jana z dniem dzisiejszym
+janKowalski.Zwolnij();
