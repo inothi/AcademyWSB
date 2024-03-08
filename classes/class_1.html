@@ -1,0 +1,176 @@
+<html>
+<header>
+  <script src="../../logo.js" defer></script>
+  <script src="class.js" defer></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</header>
+
+<body>
+  <div class="container-fluid">
+
+    <!-- Nagłówek -->
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4">
+        <img id="logo" class="d-inline-block align-top"
+        alt="logo">
+    </div>
+      <div class="col-12 col-sm-4 text-center">
+        <h2>JavaScript - programowanie obiektowe</h2>
+      </div>
+      <div class="col-12 col-sm-4 text-right">
+        <a>Prowadzący:</a>
+        </br>
+        <a>Marcin Bojarowski</a>
+        </br>
+        <a id="mail"></a>
+      </div>
+    </div>
+  </div>
+  <!-- Treść zadania -->
+  <div class="row m-2">
+    <div class="card  w-100">
+      <div class="card-header">
+        <h6 class="card-title m-0">Klasy 1</h5>
+      </div>
+      <div class="card-body">
+        <p>Utwórz klasę „Pracownik” przechowującą podstawowe informacje o danym pracowniku tj.:
+        </p>
+        <ul>
+          <li>
+            Imię
+          </li>
+          <li>
+            Nazwisko
+          </li>
+          <li>
+            Data zatrudnienia
+          </li>
+          <li>
+            Data zwolnienia
+          </li>
+          <li>
+            Pensja
+          </li>
+          <li>
+            Data wygaśnięcia umowy
+          </li>
+        </ul>
+        <p>Utwórz konstruktor klasy wg poniższych instrukcji:
+        </p>
+        <ul>
+          <li>
+            W konstruktorze należy podać wszystkie informacje z wyjątkiem daty zwolnienia (ma pozostać pusta)
+          </li>
+          <li>
+            Data zatrudnienia ma być parametrem opcjonalnym, w przypadku braku podania ma wstawić się data aktualna
+          </li>
+          <li>
+            Data wygaśnięcia umowy ma być parametrem opcjonalnym, w przypadku braku podania ma wstawić się wartość pusta
+          </li>
+        </ul>
+
+        <p>
+          Utwórz metody klasy:
+        </p>
+
+        <ul>
+          <li>
+            ZmienPensje --> zmieniającą pensję na podaną jako parametr wejściowy
+          </li>
+          <li>
+            Zwolnij --> ustawiający datę zwolnienia na podaną jako parametr wejściowy (opcjonalny), w przypadku braku
+            podania wstawiający aktualną datę
+          </li>
+          <li>
+            PrzedluzUmoweDo --> zmieniający datę wygaśnięcia umowy na podaną jako parametr wejściowy
+          </li>
+        </ul>
+        <p>Następnie wykonaj poniższe polecenia:
+        </p>
+        <ol>
+          <li class="mb-1">
+            Utwórz 3 instancje klasy wg poniższej tabeli
+          </li>
+          <div class="d-flex">
+
+            <table
+              class="table table-bordered table-sm thead-light table-striped col-12 col-md-12 col-lg-8 text-center">
+              <thead>
+                <tr>
+                  <th scope="col">Imię</th>
+                  <th scope="col">Nazwisko</th>
+                  <th scope="col">Data zatrudnienia</th>
+                  <th scope="col">Data zwolnienia</th>
+                  <th scope="col">Pensja</th>
+                  <th scope="col">Data wygaśnięcia umowy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Jan</td>
+                  <td>Kowalski</td>
+                  <td>2020-01-01</td>
+                  <td></td>
+                  <td>6000</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Anna</td>
+                  <td>Lewandowska</td>
+                  <td>2019-05-04</td>
+                  <td></td>
+                  <td>8000</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Wincenty</td>
+                  <td>Pazdan</td>
+                  <td>2020-04-05</td>
+                  <td></td>
+                  <td>4000</td>
+                  <td>2021-04-05</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <li>
+            Wypisz do konsoli ile zarabia Pan Wincenty
+          </li>
+          <li>
+            Wypisz do konsoli jak długo pracuje Pan Jan
+          </li>
+          <li>
+            Wypisz do konsoli ile łącznie zarabiają wszyscy pracownicy
+          </li>
+          <li>
+            Przedłuż umowę Panu Wincentemu do końca 2022 roku
+          </li>
+          <li>
+            Daj 2000 zł podwyżki Pani Annie
+          </li>
+          <li>
+            Zwolnij Pana Jana z dniem dzisiejszym
+          </li>
+        </ol>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
