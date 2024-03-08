@@ -70,5 +70,17 @@ document.getElementById("najbardziej-chorowity-pracownik").innerHTML = listaPrac
 document.getElementById("najbardziej-chorowity-pracownik").nextElementSibling.innerHTML = listaPracownikow[0].DaneZatrudnienia.Nieobecnosci.Chorobowe.length;
   
 // - Najwięcej dni chorobowych od początku 2020 roku wziął/wzięła ... - ... dni.
-
+// posortowanie pracowników wh największej liczby dni chorobowych i wyfiltrowanie od 2020 roku
+listaPracownikow.sort(function(a, b) {
+    let pracownik1Od2020 = a.DaneZatrudnienia.Nieobecnosci.Chorobowe.filter(function(data) {
+        return new Date(data) >= new Date("2020-01-01");
+    });
+    let pracownik2Od2020 = b.DaneZatrudnienia.Nieobecnosci.Chorobowe.filter(function(data) {
+        return new Date(data) >= new Date("2020-01-01");
+    });
+    return pracownik2Od2020.length - pracownik1Od2020.length;
+});
+// wypisanie danych pracownika i liczby dni chorobowych od 2020 roku
+document.getElementById("najbardziej-chorowity-pracownik-od-2020").innerHTML = listaPracownikow[0].DaneOsobowe.Imie + " " + listaPracownikow[0].DaneOsobowe.Nazwisko;
+document.getElementById("najbardziej-chorowity-pracownik-od-2020").nextElementSibling.innerHTML = listaPracownikow[0].DaneZatrudnienia.Nieobecnosci.Chorobowe.length;
 // - Firma wypłaciła w 2021 roku łącznie ... zł premii.
