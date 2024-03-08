@@ -62,14 +62,15 @@ class Pracownik {
         if ((dlugoscStazu - Math.floor(dlugoscStazu)) < .8) return `pracuje ponad ${Math.floor(dlugoscStazu)} i pół roku`;
         else return `pracuje prawie ${Math.floor(dlugoscStazu + 1)} lat(a)`;
     }
-}
+};
 
 
 // 1. Utwórz 3 instancje klasy wg powyższej tabeli.
-let janKowalski = new Pracownik("Jan", "Kowalski", 6000, "2020-01-01");
-let annaLewandowska = new Pracownik("Anna", "Lewandowska", 8000, "2019-05-04");
-let wincentyPazdan = new Pracownik("Wincenty", "Pazdan", 4000, "2020-04-05", "2021-04-05");
-
+const Pracownicy = [
+    janKowalski = new Pracownik("Jan", "Kowalski", 6000, "2020-01-01"),
+    annaLewandowska = new Pracownik("Anna", "Lewandowska", 8000, "2019-05-04"),
+    wincentyPazdan = new Pracownik("Wincenty", "Pazdan", 4000, "2020-04-05", "2021-04-05"),
+];
 
 // 2. Wypisz do konsoli ile zarabia Pan Wincenty
 console.log(`${wincentyPazdan.imie} ${wincentyPazdan.nazwisko} zarabia ${wincentyPazdan.pensja} zł.`);
@@ -77,3 +78,22 @@ console.log(`${wincentyPazdan.imie} ${wincentyPazdan.nazwisko} zarabia ${wincent
 
 // 3. Wypisz do konsoli jak długo pracuje Pan Jan
 console.log(`${janKowalski.imie} ${janKowalski.nazwisko} ${janKowalski.StazPracy()}`);
+
+
+// 4. Wypisz do konsoli ile łącznie zarabiają wszyscy pracownicy
+function pokazZarobki(nazwaPracownika) {
+    let sumaZarobkow = 0;
+    if (nazwaPracownika == undefined) {
+        for (let zarobki in Pracownicy) {
+            sumaZarobkow += Number(Pracownicy[zarobki].pensja);
+        }
+    }
+    else {
+        sumaZarobkow = nazwaPracownika.pensja;
+    }
+    return sumaZarobkow;
+}
+console.log(`Łączna pensja wszystkich pracowników wynosi ${pokazZarobki()} zł.`);
+
+
+// 5. Przedłuż umowę Panu Wincentemu do końca 2022 roku
