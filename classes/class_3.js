@@ -124,3 +124,9 @@ const Studenci = [
     bogumilaPrzylebska = new Student("Bogumiła", "Przyłębska", "K", "2004-02-20", 2),
 ];
 console.log(Studenci);
+
+// 2a. Wypisz do konsoli ile jest studentek.
+let ileKobiet = Studenci.filter(function(kobiety) {
+    if (kobiety.DaneOsobowe.Plec == "K") return true;
+}).length;
+console.log(ileKobiet);
