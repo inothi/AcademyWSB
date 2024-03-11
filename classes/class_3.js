@@ -130,3 +130,21 @@ let ileKobiet = Studenci.filter(function(kobiety) {
     if (kobiety.DaneOsobowe.Plec == "K") return true;
 }).length;
 console.log(ileKobiet);
+
+// 2b. Wypisz do konsoli imię i nazwisko najmłodszego ze studentów.
+let najmlodszyStudent = Studenci.sort(function(a, b) {
+    return (new Date(b.DaneOsobowe.DataUrodzenia).getTime() - new Date(a.DaneOsobowe.DataUrodzenia).getTime());
+});
+console.log(najmlodszyStudent[0].DaneOsobowe.Imie + " " + najmlodszyStudent[0].DaneOsobowe.Nazwisko);
+
+// 2c. Dodaj każdemu studentowi po 6 losowych ocen z każdego przedmiotu. Możesz wykorzystać funkcję losowaLiczbaOd2do5 zwracającą losową liczbę od 2 do 5. Znajdziesz ją w sekcji head pliku HTML.
+function losowaLiczbaOd2Do5() {
+    return Math.floor(Math.random() * (5 - 2 + 1)) + 2;
+}
+for (let studenci in Studenci) {
+    for (let przedmioty in Studenci[studenci].Oceny) {
+        for (let i = 0; i < 6; i++) {
+            Studenci[studenci].Oceny[przedmioty].push(losowaLiczbaOd2Do5());
+        }
+    }
+}
