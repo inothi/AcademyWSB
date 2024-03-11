@@ -52,13 +52,13 @@ class Student {
         this.DaneUczelni = {
             Kurs: kurs || "FrontEndDev",
             Grupa: grupa,
-            Login: login
+            Login: login || `${imie}`.substring(0, 3).toLowerCase() + `${nazwisko}`.substring(0, 3).toLowerCase() + `${dataUrodzenia}`.substring(2, 4) + `${dataUrodzenia}`.substring(5, 7) + `${dataUrodzenia}`.substring(8, 10)
         }
         this.Oceny = {
-            html: [5,4,2,2,5],
-            css: [2,3,5,5],
-            javascript: [4,4,4,3],
-            jquery: [2,3,2]
+            html: [],
+            css: [],
+            javascript: [],
+            jquery: []
         }
     }
     // 1b. Dodającą nową ocenę do wybranego przedmiotu
@@ -109,4 +109,18 @@ class Student {
     }
 }
 
-let TomaszScieszka = new Student("Tomasz", "Ścieszka", "M", "1986-02-26", 2, "tomsci860226");
+
+// 2. Następnie utwórz tablicę z 10 różnymi instancjami klasy Student.
+const Studenci = [
+    zuzannaKowalczyk = new Student("Zuzanna", "Kowalczyk", "K", "2002-09-12", 1),
+    franciszekWozniak = new Student("Franciszek", "Woźniak", "M", "2003-02-26", 1),
+    mikolajKozlowski = new Student("Mikołaj", "Kozłowski", "M", "2002-01-29", 2),
+    lenaZielinska = new Student("Lena", "Zielińska", "K", "2004-07-02", 1),
+    bartlomiejMichalak = new Student("Bartłomiej", "Michalak", "M", "2003-11-18", 2),
+    kamilaWojcik = new Student("Kamila", "Wójcik", "K", "2002-09-17", 1),
+    juliaNowak = new Student("Julia", "Nowak", "K", "2004-03-07", 2),
+    gabrielPolak = new Student("Gabriel", "Polak", "M", "2003-04-30", 2),
+    apoloniaGlebska = new Student("Apolonia", "Głębska", "K", "2003-08-04", 1),
+    bogumilaPrzylebska = new Student("Bogumiła", "Przyłębska", "K", "2004-02-20", 2),
+];
+console.log(Studenci);
