@@ -1,0 +1,359 @@
+<html>
+<header>
+  <script src="../../logo.js" defer></script>
+  <script src="../classes/class_3.js" defer></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function losowaLiczbaOd2Do5() {
+      return Math.floor(Math.random() * (5 - 2 + 1)) + 2;
+    }
+
+    window.addEventListener("load", function () {
+      document.getElementById("dodaj-ocene-pokaz-form").addEventListener("click", function () {
+        document.getElementById("studenci").classList.add("d-none");
+        document.getElementById("dodaj-ocene-form").classList.remove("d-none");
+        document.getElementById("dodaj-ocene-pokaz-form").classList.add("d-none");
+        document.getElementById("dodaj-studenta-pokaz-form").classList.add("d-none");
+        document.getElementById("dodaj-ocene-wroc").classList.remove("d-none");
+      });
+
+      document.getElementById("dodaj-ocene-wroc").addEventListener("click", function () {
+        document.getElementById("studenci").classList.remove("d-none");
+        document.getElementById("dodaj-ocene-form").classList.add("d-none");
+        document.getElementById("dodaj-ocene-pokaz-form").classList.remove("d-none");
+        document.getElementById("dodaj-studenta-pokaz-form").classList.remove("d-none");
+        document.getElementById("dodaj-ocene-wroc").classList.add("d-none");
+
+      });
+
+      document.getElementById("dodaj-studenta-pokaz-form").addEventListener("click", function () {
+        document.getElementById("studenci").classList.add("d-none");
+        document.getElementById("dodaj-studenta-form").classList.remove("d-none");
+        document.getElementById("dodaj-ocene-pokaz-form").classList.add("d-none");
+        document.getElementById("dodaj-studenta-pokaz-form").classList.add("d-none");
+        document.getElementById("dodaj-studenta-wroc").classList.remove("d-none");
+      });
+
+      document.getElementById("dodaj-studenta-wroc").addEventListener("click", function () {
+        document.getElementById("studenci").classList.remove("d-none");
+        document.getElementById("dodaj-studenta-form").classList.add("d-none");
+        document.getElementById("dodaj-ocene-pokaz-form").classList.remove("d-none");
+        document.getElementById("dodaj-studenta-pokaz-form").classList.remove("d-none");
+        document.getElementById("dodaj-studenta-wroc").classList.add("d-none");
+
+      });
+    });
+
+  </script>
+
+
+
+</header>
+
+<body>
+  <div class="container-fluid">
+
+    <!-- Nagłówek -->
+    <div class="row mt-1">
+      <div class="col-12 col-sm-4">
+        <img id="logo" class="d-inline-block align-top"
+        alt="logo">
+    </div>
+      <div class="col-12 col-sm-4 text-center">
+        <h2>JavaScript - programowanie obiektowe</h2>
+      </div>
+      <div class="col-12 col-sm-4 text-right">
+        <a>Prowadzący:</a>
+        </br>
+        <a>Marcin Bojarowski</a>
+        </br>
+        <a id="mail"></a>
+      </div>
+    </div>
+  </div>
+  <!-- Treść zadania -->
+  <div class="row m-2">
+    <div class="card  w-100">
+      <div class="card-header">
+        <h6 class="card-title m-0">Klasy 3</h5>
+      </div>
+      <div class="card-body">
+        <p>Na podstawie poniższej tabeli utwórz klasę „Student”.</p>
+
+        <div class="d-flex">
+
+          <table class="table table-bordered table-sm thead-light table-striped col-12 col-md-12 col-lg-8 text-center">
+            <thead>
+              <tr>
+                <th colspan="4" scope="col">Dane osobowe</th>
+                <th colspan="3" scope="col">Dane uczelni</th>
+                <th colspan="4" scope="col">Oceny</th>
+              </tr>
+              <tr>
+                <th scope="col">Imię</th>
+                <th scope="col">Nazwisko</th>
+                <th scope="col">Płeć</th>
+                <th scope="col">Data urodzenia</th>
+                <th scope="col">Kurs</th>
+                <th scope="col">Grupa</th>
+                <th scope="col">Login</th>
+                <th scope="col">HTML</th>
+                <th scope="col">CSS</th>
+                <th scope="col">JavaScript</th>
+                <th scope="col">jQuery</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dowolny tekst</td>
+                <td>Dowolny tekst</td>
+                <td>M / K</td>
+                <td>Data</td>
+                <td>FrontEndDev</td>
+                <td>1 lub 2</td>
+                <td>Dowolny tekst</td>
+                <td>Liczby od 2 do 5</td>
+                <td>Liczby od 2 do 5</td>
+                <td>Liczby od 2 do 5</td>
+                <td>Liczby od 2 do 5</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <p>Klasa powinna zawierać metody:</p>
+        <ul>
+          <li>
+            Konstruktor z parametrami wejściowymi zawierającymi dane osobowe i dane uczelni. Oceny mają pozostawać puste.
+          </li>
+          <li>
+            Dodającą nową ocenę do wybranego przedmiotu
+          </li>
+          <li>
+            Zwracającą średnią ocen z wybranego przedmiotu lub ogólnie
+          </li>
+          <li>
+            Zwracającą ile niezaliczonych egzaminów (ocena 2) posiada student z wybranego przedmiotu lub ogólnie
+          </li>
+        </ul>
+
+        <p>Następnie utwórz tablicę z 10 różnymi instancjami klasy Student i wykonaj polecenia:</p>
+        <ol>
+          <li>
+            Wypisz do konsoli ile jest studentek
+          </li>
+          <li>
+            Wypisz do konsoli imię i nazwisko najmłodszego ze studentów
+          </li>
+          <li>
+            Dodaj każdemu studentowi po 6 losowych ocen z każdego przedmiotu. Możesz wykorzystać funkcję
+            losowaLiczbaOd2do5 zwracającą losową liczbę od 2 do 5. Znajdziesz ją w sekcji head pliku HTML.
+          </li>
+          <li>
+            Wypisz do konsoli ile studentów nie ma oblanego egzaminu z przedmiotu „HTML”
+          </li>
+          <li>
+            Wypisz do konsoli imię i nazwisko najlepszego studenta z grupy 1
+          </li>
+          <li>
+            Wypisz do konsoli nazwę przedmiotu z którego studenci otrzymali najgorsze oceny
+          </li>
+          <li>
+            Dodaj wiersze do tabeli znajdującej się w sekcji „Rozwiązanie” wg poniższego schematu
+            <table
+              class="table table-bordered table-sm thead-light table-striped col-12 col-md-12 col-lg-8 text-center">
+              <thead>
+                <tr>
+                  <th colspan="4" scope="col">Dane osobowe</th>
+                  <th colspan="3" scope="col">Dane uczelni</th>
+                  <th colspan="4" scope="col">Oceny</th>
+                </tr>
+                <tr>
+                  <th scope="col">Imię</th>
+                  <th scope="col">Nazwisko</th>
+                  <th scope="col">Płeć</th>
+                  <th scope="col">Data urodzenia</th>
+                  <th scope="col">Kurs</th>
+                  <th scope="col">Grupa</th>
+                  <th scope="col">Login</th>
+                  <th scope="col">HTML</th>
+                  <th scope="col">CSS</th>
+                  <th scope="col">JavaScript</th>
+                  <th scope="col">jQuery</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Jan
+                  </td>
+                  <td>
+                    Kowalski
+                  </td>
+                  <td>
+                    M
+                  </td>
+                  <td>
+                    2000-05-04
+                  </td>
+                  <td>
+                    FrontEndDev
+                  </td>
+                  <td>
+                    1
+                  </td>
+                  <td>
+                    Jan12456
+                  </td>
+                  <td>
+                    5,5,4,5
+                  </td>
+                  <td>
+                    4,3,2,4
+                  </td>
+                  <td>
+                    4,2,5,4
+                  </td>
+                  <td>
+                    4,4
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            Po naciśnięciu przycisku "Dodaj ocene" pojawia się formularz dodawania oceny. Do selecta o id "dodaj-ocene-select" znajdującego się w tym formularzu dodaj warianty zawierające imię i nazwisko każdego studenta. Funkcję możesz podpiąć do obsługi zdarzenia kliknięcia na przycisk o id "dodaj-ocene-pokaz-form"
+          </li>
+          <li>
+            W formularzu dodawania oceny znajduje się przycisk „Dodaj”. Podepnij do niego obsługę zdarzenia kliknięcia, która doda wybraną ocenę do wybranego studenta. Pamiętaj aby zaktualizować również dane w tabeli.
+          </li>
+          <li>
+            Po naciśnięciu przycisku "Dodaj studenta" pojawia się formularz dodawania nowego studenta. Do przycisku "Dodaj" znajdującego się w tym formularzu podepnij obsługę zdarzenia kliknięcia, która doda studenta to tablicy studentów. Pamiętaj również o zaktualizowaniu danych w tabeli.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rozwiązanie -->
+  <div class="row m-2">
+    <div class="card  w-100">
+      <div class="card-header">
+        <h6 class="card-title m-0">Rozwiązanie:</h5>
+      </div>
+      <div class="card-body">
+        <div class="row align-items-end ml-1 d-block">
+          <button type="button" id="dodaj-ocene-pokaz-form" class="btn btn-outline-dark mb-1"">Dodaj ocene</button>
+          <button type=" button" id="dodaj-ocene-wroc" class="btn btn-outline-dark mb-1 d-none"">Wróć do tabeli</button>
+          <button type="button" id="dodaj-studenta-pokaz-form" class="btn btn-outline-dark mb-1"">Dodaj studenta</button>
+          <button type=" button" id="dodaj-studenta-wroc" class="btn btn-outline-dark mb-1 d-none"">Wróć do tabeli</button>
+          <table id="studenci"
+            class="table table-bordered table-sm thead-light table-striped col-12 col-md-12 col-lg-8 text-center">
+            <thead>
+              <tr>
+                <th colspan="4" scope="col">Dane osobowe</th>
+                <th colspan="3" scope="col">Dane uczelni</th>
+                <th colspan="4" scope="col">Oceny</th>
+              </tr>
+              <tr>
+                <th scope="col">Imię</th>
+                <th scope="col">Nazwisko</th>
+                <th scope="col">Płeć</th>
+                <th scope="col">Data urodzenia</th>
+                <th scope="col">Kurs</th>
+                <th scope="col">Grupa</th>
+                <th scope="col">Login</th>
+                <th scope="col">HTML</th>
+                <th scope="col">CSS</th>
+                <th scope="col">JavaScript</th>
+                <th scope="col">jQuery</th>
+              </tr>
+            </thead>
+            <tbody id="wiersze-tabeli-studenci">
+            </tbody>
+            </table>
+            <form id="dodaj-ocene-form" class="d-none col-12 col-sm-8 col-md-6 col-lg-4">
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Student</label>
+                <select type="text" class="form-control" id="dodaj-ocene-select">
+
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-pokaz-form">Ocena</label>
+                <select type="text" class="form-control" id="przedmiot">
+                  <option>HTML</option>
+                  <option>CSS</option>
+                  <option>JavaScript</option>
+                  <option>jQuery</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-pokaz-form">Ocena</label>
+                <select type="text" class="form-control" id="ocena">
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <button type="button" id="dodaj-ocene-zapisz" class="btn btn-outline-dark mb-1"">Dodaj</button>
+
+            </form>
+            
+            <form id="dodaj-studenta-form" class="d-none col-12 col-sm-8 col-md-6 col-lg-4">
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Imię</label>
+                <input type="text" class="form-control" id="dodaj-studenta-imie" placeholder="Wpisz imię studenta">
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Nazwisko</label>
+                <input type="text" class="form-control" id="dodaj-studenta-nazwisko" placeholder="Wpisz nazwisko studenta">
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Płeć</label>
+                <select type="text" class="form-control" id="dodaj-studenta-plec">
+                  <option>M</option>
+                  <option>K</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Data urodzenia</label>
+                <input type="date" class="form-control" id="dodaj-studenta-data-urodzenia" placeholder="Wpisz datę urodzenia studenta">
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Grupa</label>
+                <select type="text" class="form-control" id="dodaj-studenta-grupa">
+                  <option>1</option>
+                  <option>2</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dodaj-ocene-select">Login</label>
+                <input type="text" class="form-control" id="dodaj-studenta-login" placeholder="Wpisz login studenta">
+              </div>
+              <button type="button" id="dodaj-studenta-zapisz" class="btn btn-outline-dark mb-1"">Dodaj</button>
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
