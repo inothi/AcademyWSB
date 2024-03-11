@@ -65,7 +65,7 @@ class Student {
     DodajOcene(przedmiot, ocena) {
         if (((ocena >= 2) && (ocena <= 5)) && (this.Oceny.hasOwnProperty(przedmiot.toLowerCase()))) return this.Oceny[przedmiot.toLowerCase()].push(ocena);
     }
-    // 1c. Zwracającą średnią ocen z wybranego przedmiotu...
+    // 1c. Zwracającą średnią ocen z wybranego przedmiotu lub ogólnie
     SredniaOcen(przedmiot) {
         let sredniaOcen = 0;
         let iloscOcen = 0;
@@ -78,12 +78,33 @@ class Student {
             }
             return sredniaOcen / iloscOcen;
         } 
-        // ... lub ogólnie
         else if (this.Oceny.hasOwnProperty(przedmiot.toLowerCase())) {
             for (let index in this.Oceny[przedmiot.toLowerCase()]) {
                 sredniaOcen += this.Oceny[przedmiot.toLowerCase()][index];
             }
             return (sredniaOcen / this.Oceny[przedmiot.toLowerCase()].length);
+        }
+    }
+    // 1d. Zwracającą ile niezaliczonych egzaminów (ocena 2) posiada student z wybranego przedmiotu lub ogólnie
+    IleNiezaliczonych(przedmiot) {
+        let iloscNiezaliczonych = 0;
+        if ((przedmiot == undefined) || (!(this.Oceny.hasOwnProperty(przedmiot.toLowerCase())))) {
+            for (let przedmioty in this.Oceny) {
+                for (let ocena in this.Oceny[przedmioty]) {
+                    if (this.Oceny[przedmioty][ocena] == 2) {
+                        iloscNiezaliczonych++;
+                    };
+                }
+            }
+            return iloscNiezaliczonych;
+        } 
+        else if (this.Oceny.hasOwnProperty(przedmiot.toLowerCase())) {
+            for (let index in this.Oceny[przedmiot.toLowerCase()]) {
+                if (this.Oceny[przedmiot.toLowerCase()][index] == 2) {
+                    iloscNiezaliczonych++;
+                }
+            }
+            return iloscNiezaliczonych;
         }
     }
 }
