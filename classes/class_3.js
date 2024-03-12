@@ -162,3 +162,33 @@ let najlepszyStudent = Studenci.sort(function(a, b) {
     return grupa.DaneUczelni.Grupa == 1;
 });
 console.log(najlepszyStudent[0].DaneOsobowe.Imie + " " + najlepszyStudent[0].DaneOsobowe.Nazwisko);
+
+// 2f. Wypisz do konsoli nazwę przedmiotu z którego studenci otrzymali najgorsze oceny.
+function najtrudniejszyPrzedmiot() {
+    let tablicaOcen = [
+        tablicaOcenHtml = [],
+        tablicaOcenCss = [],
+        tablicaOcenJavascript = [],
+        tablicaOcenJquery = []
+    ];
+    for (let index in Studenci) {
+        for (let przedmioty in Studenci[index].Oceny) {
+            for (let oceny in Studenci[index].Oceny[przedmioty]) {
+                if (przedmioty == "html") {
+                    this.tablicaOcenHtml.push(Studenci[index].Oceny[przedmioty][oceny]);
+                }
+                else if (przedmioty == "css") {
+                    this.tablicaOcenCss.push(Studenci[index].Oceny[przedmioty][oceny]);
+                }
+                else if (przedmioty == "javascript") {
+                    this.tablicaOcenJavascript.push(Studenci[index].Oceny[przedmioty][oceny]);
+                }
+                else if (przedmioty == "jquery") {
+                    this.tablicaOcenJquery.push(Studenci[index].Oceny[przedmioty][oceny]);
+                }
+            }
+        }
+    }
+    return tablicaOcen;
+}
+console.log(najtrudniejszyPrzedmiot());
