@@ -148,3 +148,17 @@ for (let studenci in Studenci) {
         }
     }
 }
+
+// 2d. Wypisz do konsoli ile studentów nie ma oblanego egzaminu z przedmiotu „HTML”.
+let iluOblalo = Studenci.filter(function(niezaliczenia) {
+    if (niezaliczenia.Oceny.html.includes(2)) return true;
+}).length;
+console.log(iluOblalo);
+
+// 2e. Wypisz do konsoli imię i nazwisko najlepszego studenta z grupy 1.
+let najlepszyStudent = Studenci.sort(function(a, b) {
+    return b.SredniaOcen() - a.SredniaOcen();
+}).filter(function(grupa) {
+    return grupa.DaneUczelni.Grupa == 1;
+});
+console.log(najlepszyStudent[0].DaneOsobowe.Imie + " " + najlepszyStudent[0].DaneOsobowe.Nazwisko);
