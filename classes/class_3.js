@@ -164,31 +164,32 @@ let najlepszyStudent = Studenci.sort(function(a, b) {
 console.log(najlepszyStudent[0].DaneOsobowe.Imie + " " + najlepszyStudent[0].DaneOsobowe.Nazwisko);
 
 // 2f. Wypisz do konsoli nazwę przedmiotu z którego studenci otrzymali najgorsze oceny.
-function najtrudniejszyPrzedmiot() {
-    let tablicaOcen = [
-        tablicaOcenHtml = [],
-        tablicaOcenCss = [],
-        tablicaOcenJavascript = [],
-        tablicaOcenJquery = []
-    ];
+function najgorszeOceny() {
+    let html = 0, css = 0, javascript = 0, jquery = 0;
     for (let index in Studenci) {
-        for (let przedmioty in Studenci[index].Oceny) {
-            for (let oceny in Studenci[index].Oceny[przedmioty]) {
-                if (przedmioty == "html") {
-                    this.tablicaOcenHtml.push(Studenci[index].Oceny[przedmioty][oceny]);
-                }
-                else if (przedmioty == "css") {
-                    this.tablicaOcenCss.push(Studenci[index].Oceny[przedmioty][oceny]);
-                }
-                else if (przedmioty == "javascript") {
-                    this.tablicaOcenJavascript.push(Studenci[index].Oceny[przedmioty][oceny]);
-                }
-                else if (przedmioty == "jquery") {
-                    this.tablicaOcenJquery.push(Studenci[index].Oceny[przedmioty][oceny]);
-                }
-            }
+        html += Studenci[index].SredniaOcen("html");
+        css += Studenci[index].SredniaOcen("css");
+        javascript += Studenci[index].SredniaOcen("javascript");
+        jquery += Studenci[index].SredniaOcen("jquery");
+    }
+    let tablicaSrednich = [];
+    tablicaSrednich.push(
+        {name: "HTML", srednia: html},
+        {name: "CSS", srednia: css},
+        {name: "JavaScript", srednia: javascript},
+        {name: "jQuery", srednia: jquery}
+    );
+    tablicaSrednich.sort(function(a, b) {
+        return a.srednia - b.srednia;
+    });
+    let iloscTakichSamych = 0;
+    for (let i = 0; i < tablicaSrednich.length - 1; i++) {
+        if (tablicaSrednich[i].srednia == tablicaSrednich[i + 1].srednia) {
+            iloscTakichSamych++;
         }
     }
-    return tablicaOcen;
-}
-console.log(najtrudniejszyPrzedmiot());
+    for (let i = 0; i <= iloscTakichSamych; i++) {
+        console.log(tablicaSrednich[i].name);
+    }
+};
+najgorszeOceny();
