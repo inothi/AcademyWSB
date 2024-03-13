@@ -279,12 +279,17 @@ uzupelnijTabele();
 // 2h. Po naciśnięciu przycisku "Dodaj ocene" pojawia się formularz dodawania oceny. 
 // Do selecta o id "dodaj-ocene-select" znajdującego się w tym formularzu dodaj warianty zawierające imię i nazwisko każdego studenta. 
 // Funkcję możesz podpiąć do obsługi zdarzenia kliknięcia na przycisk o id "dodaj-ocene-pokaz-form".
-let dodajOceneLista = document.getElementById("dodaj-ocene-select");
-for (let index in Studenci) {
-    let option = document.createElement("option");
-    option.innerHTML = `${Studenci[index].DaneOsobowe.Imie} ${Studenci[index].DaneOsobowe.Nazwisko}`;
-    dodajOceneLista.appendChild(option);
-};
+let przyciskDodajOcene = document.getElementById("dodaj-ocene-pokaz-form");
+przyciskDodajOcene.addEventListener("click", function() {
+    document.getElementById("dodaj-ocene-select").innerHTML = "";
+    let dodajOceneLista = document.getElementById("dodaj-ocene-select");
+    for (let index in Studenci) {
+        let option = document.createElement("option");
+        option.innerHTML = `${Studenci[index].DaneOsobowe.Imie} ${Studenci[index].DaneOsobowe.Nazwisko}`;
+        dodajOceneLista.appendChild(option);
+    };
+});
+
 
 // 2i. W formularzu dodawania oceny znajduje się przycisk „Dodaj”. 
 // Podepnij do niego obsługę zdarzenia kliknięcia, która doda wybraną ocenę do wybranego studenta. 
