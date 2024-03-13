@@ -193,3 +193,69 @@ function najgorszeOceny() {
     }
 };
 najgorszeOceny();
+
+/* 2g. Dodaj wiersze do tabeli znajdującej się w sekcji „Rozwiązanie” wg poniższego schematu:
+----------------------------------------------------------------------------------------------------------------------------------------------
+| Dane osobowe	                                | Dane uczelni	                            | Oceny                                          |
+|-----------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Imię	| Nazwisko	| Płeć	| Data urodzenia	| Kurs	        | Grupa	    | Login	        | HTML	    | CSS	    | JavaScript	| jQuery |
+| Jan	| Kowalski	| M	    | 2000-05-04	    | FrontEndDev	| 1	        | Jan12456	    | 5,5,4,5	| 4,3,2,4	| 4,2,5,4	    | 4,4    |
+----------------------------------------------------------------------------------------------------------------------------------------------
+*/
+function uzupelnijTabele() {
+    // pobranie ciała tabeli z html
+    let tabelaStudentow = document.getElementById("wiersze-tabeli-studenci");
+    // utworzenie pętli dodającej tyle wierszy ilu jest studentów
+    for (let wiersz in Studenci) {
+        // utworzenie nowego wiersza tabeli
+        let nowyWiersz = document.createElement("tr");
+        // utworzenie kolumn tabeli
+        let kolumna01 = document.createElement("td");
+        kolumna01.innerHTML = Studenci[wiersz].DaneOsobowe.Imie;
+        nowyWiersz.appendChild(kolumna01);
+
+        let kolumna02 = document.createElement("td");
+        kolumna02.innerHTML = Studenci[wiersz].DaneOsobowe.Nazwisko;
+        nowyWiersz.appendChild(kolumna02);
+
+        let kolumna03 = document.createElement("td");
+        kolumna03.innerHTML = Studenci[wiersz].DaneOsobowe.Plec;
+        nowyWiersz.appendChild(kolumna03);
+
+        let kolumna04 = document.createElement("td");
+        kolumna04.innerHTML = Studenci[wiersz].DaneOsobowe.DataUrodzenia;
+        nowyWiersz.appendChild(kolumna04);
+
+        let kolumna05 = document.createElement("td");
+        kolumna05.innerHTML = Studenci[wiersz].DaneUczelni.Kurs;
+        nowyWiersz.appendChild(kolumna05);
+
+        let kolumna06 = document.createElement("td");
+        kolumna06.innerHTML = Studenci[wiersz].DaneUczelni.Grupa;
+        nowyWiersz.appendChild(kolumna06);
+
+        let kolumna07 = document.createElement("td");
+        kolumna07.innerHTML = Studenci[wiersz].DaneUczelni.Login;
+        nowyWiersz.appendChild(kolumna07);
+
+        let kolumna08 = document.createElement("td");
+        kolumna08.innerHTML = Studenci[wiersz].Oceny.html;
+        nowyWiersz.appendChild(kolumna08);
+
+        let kolumna09 = document.createElement("td");
+        kolumna09.innerHTML = Studenci[wiersz].Oceny.css;
+        nowyWiersz.appendChild(kolumna09);
+        
+        let kolumna10 = document.createElement("td");
+        kolumna10.innerHTML = Studenci[wiersz].Oceny.javascript;
+        nowyWiersz.appendChild(kolumna10);
+        
+        let kolumna11 = document.createElement("td");
+        kolumna11.innerHTML = Studenci[wiersz].Oceny.jquery;
+        nowyWiersz.appendChild(kolumna11);
+
+        // dodanie wszystkich wierszy do tabeli studentów
+        tabelaStudentow.appendChild(nowyWiersz);
+    }
+};
+uzupelnijTabele();
