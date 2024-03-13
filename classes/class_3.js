@@ -123,7 +123,6 @@ const Studenci = [
     apoloniaGlebska = new Student("Apolonia", "Głębska", "K", "2003-08-04", 1),
     bogumilaPrzylebska = new Student("Bogumiła", "Przyłębska", "K", "2004-02-20", 2),
 ];
-console.log(Studenci);
 
 // 2a. Wypisz do konsoli ile jest studentek.
 let ileKobiet = Studenci.filter(function(kobiety) {
@@ -153,13 +152,14 @@ for (let studenci in Studenci) {
 let iluOblalo = Studenci.filter(function(niezaliczenia) {
     if (niezaliczenia.Oceny.html.includes(2)) return true;
 }).length;
-console.log(iluOblalo);
+iluZaliczyloHtml = Studenci.length - iluOblalo;
+console.log(iluZaliczyloHtml);
 
 // 2e. Wypisz do konsoli imię i nazwisko najlepszego studenta z grupy 1.
-let najlepszyStudent = Studenci.sort(function(a, b) {
+let najlepszyStudent = Studenci.filter(function(grupa) {
+    if (grupa.DaneUczelni.Grupa == 1) return true;
+}).sort(function(a, b) {
     return b.SredniaOcen() - a.SredniaOcen();
-}).filter(function(grupa) {
-    return grupa.DaneUczelni.Grupa == 1;
 });
 console.log(najlepszyStudent[0].DaneOsobowe.Imie + " " + najlepszyStudent[0].DaneOsobowe.Nazwisko);
 
@@ -189,10 +189,10 @@ function najgorszeOceny() {
         }
     }
     for (let i = 0; i <= iloscTakichSamych; i++) {
-        console.log(tablicaSrednich[i].name);
+        return tablicaSrednich[i].name;
     }
 };
-najgorszeOceny();
+console.log(najgorszeOceny());
 
 /* 2g. Dodaj wiersze do tabeli znajdującej się w sekcji „Rozwiązanie” wg poniższego schematu:
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -259,3 +259,34 @@ function uzupelnijTabele() {
     }
 };
 uzupelnijTabele();
+
+// 2h. Po naciśnięciu przycisku "Dodaj ocene" pojawia się formularz dodawania oceny. 
+// Do selecta o id "dodaj-ocene-select" znajdującego się w tym formularzu dodaj warianty zawierające imię i nazwisko każdego studenta. 
+// Funkcję możesz podpiąć do obsługi zdarzenia kliknięcia na przycisk o id "dodaj-ocene-pokaz-form".
+let dodajOceneLista = document.getElementById("dodaj-ocene-select");
+for (let index in Studenci) {
+    let option = document.createElement("option");
+    option.innerHTML = `${Studenci[index].DaneOsobowe.Imie} ${Studenci[index].DaneOsobowe.Nazwisko}`;
+    dodajOceneLista.appendChild(option);
+};
+
+// 2i. W formularzu dodawania oceny znajduje się przycisk „Dodaj”. 
+// Podepnij do niego obsługę zdarzenia kliknięcia, która doda wybraną ocenę do wybranego studenta. 
+// Pamiętaj aby zaktualizować również dane w tabeli.
+
+let przysikDodaj = document.getElementById("dodaj-ocene-zapisz");
+przysikDodaj.addEventListener("click", function() {
+    let studentImie = document.getElementById("dodaj-ocene-select").value.split(" ")[0];
+    let studentNazwisko = document.getElementById("dodaj-ocene-select").value.split(" ")[1];
+    let przedmiot = document.getElementById("przedmiot").value;
+    let ocena = Number(document.getElementById("ocena").value);
+    for (let i in Studenci) {
+        if ((Studenci[i].DaneOsobowe.Imie == studentImie) && (Studenci[i].DaneOsobowe.Nazwisko == studentNazwisko)) {
+            Studenci[i].DodajOcene(przedmiot, ocena);
+        }
+    }
+    document.getElementById("wiersze-tabeli-studenci").innerHTML = "";
+    uzupelnijTabele();
+});
+
+console.log(Studenci[0]);
