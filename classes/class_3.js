@@ -273,9 +273,8 @@ for (let index in Studenci) {
 // 2i. W formularzu dodawania oceny znajduje się przycisk „Dodaj”. 
 // Podepnij do niego obsługę zdarzenia kliknięcia, która doda wybraną ocenę do wybranego studenta. 
 // Pamiętaj aby zaktualizować również dane w tabeli.
-
-let przysikDodaj = document.getElementById("dodaj-ocene-zapisz");
-przysikDodaj.addEventListener("click", function() {
+let przysikDodajOcene = document.getElementById("dodaj-ocene-zapisz");
+przysikDodajOcene.addEventListener("click", function() {
     let studentImie = document.getElementById("dodaj-ocene-select").value.split(" ")[0];
     let studentNazwisko = document.getElementById("dodaj-ocene-select").value.split(" ")[1];
     let przedmiot = document.getElementById("przedmiot").value;
@@ -289,4 +288,20 @@ przysikDodaj.addEventListener("click", function() {
     uzupelnijTabele();
 });
 
-console.log(Studenci[0]);
+// 2j. Po naciśnięciu przycisku "Dodaj studenta" pojawia się formularz dodawania nowego studenta. 
+// Do przycisku "Dodaj" znajdującego się w tym formularzu podepnij obsługę zdarzenia kliknięcia, która doda studenta to tablicy studentów. 
+// Pamiętaj również o zaktualizowaniu danych w tabeli.
+let przysikDodajStudenta = document.getElementById("dodaj-studenta-zapisz");
+przysikDodajStudenta.addEventListener("click", function() {
+    let studentImie = document.getElementById("dodaj-studenta-imie").value;
+    let studentNazwisko = document.getElementById("dodaj-studenta-nazwisko").value;
+    let studentPlec = document.getElementById("dodaj-studenta-plec").value;
+    let studentDataUrodzenia = document.getElementById("dodaj-studenta-data-urodzenia").value;
+    let studentGrupa = Number(document.getElementById("dodaj-studenta-grupa").value);
+    let studentLogin = document.getElementById("dodaj-studenta-login").value;
+
+    let nowyStudent = new Student(studentImie, studentNazwisko, studentPlec, studentDataUrodzenia, studentGrupa, studentLogin);
+    Studenci.push(nowyStudent);
+    document.getElementById("wiersze-tabeli-studenci").innerHTML = "";
+    uzupelnijTabele();
+});
