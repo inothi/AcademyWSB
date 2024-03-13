@@ -52,7 +52,23 @@ class Student {
         this.DaneUczelni = {
             Kurs: kurs || "FrontEndDev",
             Grupa: grupa,
-            Login: login || `${imie}`.substring(0, 3).toLowerCase() + `${nazwisko}`.substring(0, 3).toLowerCase() + `${dataUrodzenia}`.substring(2, 4) + `${dataUrodzenia}`.substring(5, 7) + `${dataUrodzenia}`.substring(8, 10)
+            Login: login || `${imie}`.substring(0, 3).toLowerCase()
+                .replace(/ą/g,"a")
+                .replace(/ę/g,"e")
+                .replace(/ó/g,"o")
+                .replace(/ś/g,"s")
+                .replace(/ł/g,"l")
+                .replace(/ż|ź/g,"z")
+                .replace(/ć/g,"c")
+                .replace(/ń/g,"n") + `${nazwisko}`.substring(0, 3).toLowerCase()
+                .replace(/ą/g,"a")
+                .replace(/ę/g,"e")
+                .replace(/ó/g,"o")
+                .replace(/ś/g,"s")
+                .replace(/ł/g,"l")
+                .replace(/ż|ź/g,"z")
+                .replace(/ć/g,"c")
+                .replace(/ń/g,"n") + `${dataUrodzenia}`.substring(2, 4) + `${dataUrodzenia}`.substring(5, 7) + `${dataUrodzenia}`.substring(8, 10)
         }
         this.Oceny = {
             html: [],
