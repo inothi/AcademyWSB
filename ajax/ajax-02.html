@@ -1,0 +1,132 @@
+<header>
+    <script src="../../logo.js" defer></script>
+    <script src="ajax-02.js" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</header>
+
+<body class="bg-light font-size">
+    <div class="container-fluid">
+
+        <!-- Nagłówek -->
+        <div class="row mt-1">
+            <div class="col-12 col-sm-4">
+                <img id="logo" class="d-inline-block align-top"
+                alt="logo">
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <h2>AJAX</h2>
+            </div>
+            <div class="col-12 col-sm-4 text-right">
+                <a>Prowadzący:</a>
+                </br>
+                <a>Marcin Bojarowski</a>
+                </br>
+                <a id="mail"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Treść zadania -->
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Zadanie 2 - Dane krajów - Fetch API</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-justify font-size">
+                    Korzystając z serwisu "https://restcountries.com/" rozbuduj poniższą stronę o następujące funkcje:
+                <ol>
+                    <li class="text-justify">
+                        <a>Podczas uruchamiania strony uzupełnij listę rozwijalną o wszystkie kraje świata.</a>
+                        <a>Skorzystaj z url "https://restcountries.com/v2/all"</a>
+                    </li>
+                    </br>
+                    <li class="text-justify">
+                        <a>Utwórz funkcję, która po wybraniu kraju z listy rozwijalnej, uzupełni
+                            tabelę z
+                            danymi danego kraju. Funkcję podepnij pod zdarzenie "change" kontrolki "select"</a>
+                        <a>Skorzystaj z url "https://restcountries.com/v2/name/nazwaKraju", gdzie nazwaKraju
+                            zastępujesz nazwą wybranego kraju</a>
+                    </li>
+                </ol>
+
+                <p>
+                    Zadanie wykonaj z wykorzystaniem metody Fetch API.
+                </p>
+                <p>
+                Nie modyfikuj pliku HTML.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Rozwiązanie</h5>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3 offset-md-3 col-12 col-md-6">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Kraj</label>
+                    </div>
+                    <select class="custom-select" id="lista">
+                        <option selected disabled>Wybierz kraj z listy...</option>
+                    </select>
+                </div>
+                <div id="danekraju" class="container background mb-4">
+                    <h5 class="text-center">Dane kraju</h5>
+                    <div class="row border rounded bg-light">
+                        <div class="col-6 border">
+                            <a>Nazwa:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="nazwa">Brak danych</p>
+                        </div>
+                        <div class="col-6 border">
+                            <a>Flaga:</a>
+                            <div class="text-right">
+                                <img class="my-1" id="flaga" src="" alt="Flaga" width="100" height="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border rounded">
+                        <div class="col-6 border">
+                            <a>Rodzima nazwa:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="rodzimanazwa">Brak danych</p>
+                        </div>
+                        <div class="col-6 border">
+                            <a>Stolica:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="stolica">Brak danych</p>
+                        </div>
+                    </div>
+
+                    <div class="row border rounded">
+                        <div class="col-6 border">
+                            <a>Powierzchnia:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="powierzchnia">Brak danych</p>
+                        </div>
+                        <div class="col-6 border">
+                            <a>Liczba ludności:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="liczbaludnosci">Brak danych</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<style>
+    .font-size{
+        font-size:0.9rem;
+    }
+</style>
