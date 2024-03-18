@@ -1,6 +1,6 @@
 <header>
     <script src="../../logo.js" defer></script>
-    <script src="ajax-02.js" defer></script>
+    <script src="ajax-01-xmlHttpReq.js" defer></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -28,10 +28,10 @@
             </div>
             <div class="col-12 col-sm-4 text-right">
                 <a>Prowadzący:</a>
-                </br>
-                <a>Marcin Bojarowski</a>
-                </br>
-                <a id="mail"></a>
+            </br>
+            <a>Marcin Bojarowski</a>
+            </br>
+            <a id="mail"></a>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
     <div class="row m-2">
         <div class="card  w-100">
             <div class="card-header">
-                <h6 class="card-title m-0">Zadanie 2 - Dane krajów - Fetch API</h5>
+                <h6 class="card-title m-0">Zadanie 1 - Dane krajów - XMLHttpRequest</h5>
             </div>
             <div class="card-body">
                 <p class="card-text text-justify font-size">
@@ -61,11 +61,10 @@
                 </ol>
 
                 <p>
-                    Zadanie wykonaj z wykorzystaniem metody Fetch API.
+                    Zadanie wykonaj z wykorzystaniem obiektu XMLHttpRequest.
                 </p>
                 <p>
                 Nie modyfikuj pliku HTML.
-                </p>
             </div>
         </div>
     </div>
@@ -117,6 +116,7 @@
                             <a>Liczba ludności:</a>
                             <p class=" mb-0 text-right font-weight-bold" id="liczbaludnosci">Brak danych</p>
                         </div>
+                        <input id="fileupload" type="file" name="fileupload" />
                     </div>
                 </div>
             </div>
