@@ -1,0 +1,125 @@
+<header>
+    <script src="../logo.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="Zadanie 5 - Prognoza pogody.js" defer></script>
+</header>
+
+<body class="bg-light font-size">
+    <div class="container-fluid">
+
+        <!-- Nagłówek -->
+        <div class="row mt-1">
+            <div class="col-12 col-sm-4">
+                <img id="logo" class="d-inline-block align-top"
+                    alt="logo">
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <h2>AJAX</h2>
+            </div>
+            <div class="col-12 col-sm-4 text-right">
+                <a>Prowadzący:</a>
+            </br>
+            <a>Marcin Bojarowski</a>
+            </br>
+            <a id="mail"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Treść zadania -->
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Zadanie 5 - Prognoza pogody</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-justify font-size">
+                    Wykorzystując jedną z poznanych technologii AJAX, przy wykorzystaniu API serwisu <b><u>„https://openweathermap.org/”</u></b> wykonaj poniższe polecenia:
+
+                </p>
+                <ol>
+                    <li class="mb-2 text-justify">
+                        <a>Uzupełnij pole „select” o wybrane polskie miasta: Warszawa, Gdańsk, Poznań, Kraków oraz Wrocław
+                        </a>
+                    </li>
+                    <li class="mb-2 text-justify">
+                        <a>Utwórz połączenie AJAX wykorzystując adres URL:</a>
+                        <p><b><u>https://api.openweathermap.org/data/2.5/weather?q=nazwaMiasta&units=metric&appid=cf608d877811f21a9017c72939080a39</u></b></p>
+                       <p>gdzie fragment nazwaMiasta zastąpi nazwa wybranego w polu „select” miasta. Przeanalizuj dokładnie odpowiedź z serwera. Dodatkowo możesz wspomóc się dokumentacją ze strony <b><u>https://openweathermap.org/current</u></b>. Połączenie ma się wykonywać każdorazowo po zmianie wartości w polu „select”.</p>
+                    </li>
+                    <li class="mb-2 text-justify">
+                        <a>Wykorzystując dane z połączenia AJAX, uzupełnij dane w poniżej tabeli tj. nazwę miasta, opis bieżącej pogody, temperaturę, wilgotność, wiatr oraz ciśnienie. Uzupełnij także ikonę symbolizującą bieżącą pogodę wykorzystując link <b><u>https://openweathermap.org/img/wn/kod@2x.png</u></b> gdzie słowo „kod” zastąpi kod bieżącej pogody znajdujący się w odpowiedzi z serwera.
+                        </a>
+                    </li>
+                </ol>
+                <a>Nie modyfikuj pliku HTML</a>
+            </div>
+        </div>
+    </div>
+    <!-- Rozwiązanie -->
+    <div class="row m-2">
+        <div class="card  w-100">
+            <div class="card-header">
+                <h6 class="card-title m-0">Rozwiązanie</h5>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3 offset-md-3 col-12 col-md-6">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Miasto</label>
+                    </div>
+                    <select class="custom-select" id="lista">
+                        <option selected disabled>Wybirze miasto z listy...</option>
+                    </select>
+                </div>
+                <div id="danekraju" class="container background mb-4">
+                    <h5 class="text-center">Prognoza pogody</h5>
+                    <div class="row border rounded bg-light">
+                        <div class="col-6 border">
+                            <a>Miasto:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="nazwaMiasta">Brak danych</p>
+                        </div>
+                        <div class="col-6 border">
+                            <a>Bieżąca pogoda:</a>
+                            <div class="text-right">
+                                <img class="my-1" id="ikonaPogody" src="" alt="Icon" width="70" height="70">
+                                <p class=" mb-0 text-right font-weight-bold" id="opisPogody">Brak danych</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border rounded">
+                        <div class="col-6 border">
+                            <a>Temperatura:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="temperatura">Brak danych</p>
+                        </div>
+                        <div class="col-6 border">
+                            <a>Wilgotność:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="wilgotnosc">Brak danych</p>
+                        </div>
+                    </div>
+
+                    <div class="row border rounded">
+                        <div class="col-6 border">
+                            <a>Wiatr:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="wiatr">Brak danych</p>
+                        </div>
+                        <div class="col-6 border">
+                            <a>Ciśnienie:</a>
+                            <p class=" mb-0 text-right font-weight-bold" id="cisnienie">Brak danych</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<style>
+    .font-size {
+        font-size: 0.9rem;
+    }
+</style>
